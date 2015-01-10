@@ -1,10 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'application'
-mainClassName = "org.p7h.cassandra.gettingstarted.GettingStarted"
-//mainClassName = "org.p7h.cassandra.gettingstarted.GettingStartedTwo"
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+def PROJECT_TASK_GROUP = "Project specific custom"
 
 repositories {
     mavenCentral()
@@ -17,4 +16,30 @@ dependencies {
     compile group: 'com.datastax.cassandra', name: 'cassandra-driver-mapping', version: cassandraVersion
 }
 
-defaultTasks 'clean', 'run'
+def decorate() {
+    for (i in 0 .. 58) {
+        print '='
+    }
+    println ""
+}
+
+task versions() {
+    group = PROJECT_TASK_GROUP
+    description = '*Custom Task*: Prints the JDK and Gradle versions used by this script.'
+    decorate()
+    println "*** Using Java v${org.gradle.internal.jvm.Jvm.current()} ***"
+    println "*** Using Gradle v${GradleVersion.current().version} ***"
+    decorate()
+}
+
+task execute(type:JavaExec) {
+    group = PROJECT_TASK_GROUP
+    description = '*Custom Task*: Searches in the classpath and executes the input class provided by the user on the command line.'
+   main = mainClassName
+   classpath = sourceSets.main.runtimeClasspath
+}
+
+clean.dependsOn versions
+compileJava.dependsOn clean
+
+defaultTasks 'clean', 'tasks'

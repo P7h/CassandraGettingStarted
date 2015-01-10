@@ -15,14 +15,14 @@ To build and run the code, you must use Java 1.8.<br>
 
 Command to execute [GettingStarted.java](src/main/java/org/p7h/cassandra/gettingstarted/GettingStarted.java) is:
 
-    gradle --no-color
+    gradle --no-color -PmainClassName=org.p7h.cassandra.gettingstarted.GettingStarted execute
 
-Comment out line[#3](build.gradle#L3) in `build.gradle` and uncomment line[#4](build.gradle#L4) for `mainClassName` to execute the other class [GettingStartedTwo.java](src/main/java/org/p7h/cassandra/gettingstarted/GettingStartedTwo.java) in this repo. This class can be executed as before:
+Command to execute [GettingStartedTwo.java](src/main/java/org/p7h/cassandra/gettingstarted/GettingStartedTwo.java) is:
 
-    gradle --no-color
+    gradle --no-color -PmainClassName=org.p7h.cassandra.gettingstarted.GettingStartedTwo execute
 
 ## Problems
-This is very simple repo and there should n't be any errors or issues with this code as such. But, if you find any issues, please report them either raising an [issue](https://github.com/P7h/CassandraGettingStarted/issues) here on GitHub or alert me on Twitter [@P7h](http://twitter.com/P7h). Or even better, please send a [pull request](https://github.com/P7h/CassandraGettingStarted/pulls).<br>
+This is very simple repo and there should not be any errors or issues with this code as such. But, if you find any issues, please report them either raising an [issue](https://github.com/P7h/CassandraGettingStarted/issues) here on GitHub or alert me on Twitter [@P7h](http://twitter.com/P7h). Or even better, please send a [pull request](https://github.com/P7h/CassandraGettingStarted/pulls).<br>
 Appreciate your help. Thanks!
 
 ## License
