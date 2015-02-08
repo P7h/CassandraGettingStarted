@@ -10,6 +10,14 @@ The packages in Cassandra have been refactored in the most recent versions. But 
 
 > Ideally this repo could just have been a simple test case oriented. Probably that makes more sense.
 
+## DB Configuration
+Please run the following commands on CQL before running the Java code.
+
+    DROP KEYSPACE demo;
+    CREATE KEYSPACE demo WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };
+    use demo;
+    CREATE TABLE users (lastname text PRIMARY KEY, age int, city text, email text, firstname text);
+
 ## Usage
 To build and run the code, you must use Java 1.8.<br>
 
